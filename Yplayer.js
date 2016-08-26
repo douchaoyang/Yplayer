@@ -1,8 +1,8 @@
 /*
 **@package Yplayer based on Vcastr 2.2
-**@version 1.0.1
+**@version 1.2.0
 **@Author  douchaoyang
-**@Date    2016-03-29
+**@Date    2016-06-07
 **@Link    http://www.tiancity.com
 */
 var _$_Player = {
