@@ -1,8 +1,8 @@
 /*
 **@package Yplayer based on Vcastr 2.2
-**@version 1.2.0
+**@version 1.2.1
 **@Author  douchaoyang
-**@Date    2016-06-06
+**@Date    2016-08-26
 **@Link    http://www.tiancity.com
 */
 var _$_Player = {
@@ -36,11 +36,10 @@ function Yplayer(params){
 };
 Yplayer.prototype={
 	Load:function(id){
-		_$_Player.LA(id, this.Init());
-		_$_Player.$("imy_video_close").style.display = "none";
+		_$_Player.LA(id, this.Init(false));
 	},
 	Pop:function(){
-		var _init=this.Init(),_width=this.width,_height=this.height;
+		var _init=this.Init(true),_width=this.width,_height=this.height;
 			var bw = document.documentElement.clientWidth;
 			var bh = document.documentElement.clientHeight;
 			if (_$_Player.flag) {
@@ -65,13 +64,24 @@ Yplayer.prototype={
 				_$_Player.flag = true	
 			}
 	},
-	Init:function(){
+	Init:function(type){
 		var embedText=null;
 		if (this.type.toUpperCase() == "TC") {
-		embedText = "<a id=\"imy_video_close\">CLOSE</a><embed wmode=\"transparent\" type=\"application/x-shockwave-flash\" pluginspage=\"http://www.macromedia.com/go/getflashplayer\" quality=\"high\" flashvars=\"vcastr_file="+this.url+"&IsAutoPlay="+this.auto+"&IsContinue="+this.repeat+"&IsShowBar="+this.showbar+"&IsShowTime="+this.showtime+"&BeginSwf="+this.beginswf+"&EndSwf="+this.endswf+"\" allowfullscreen=\"true\" src=\"vcastr.swf\" height="+this.height+" width="+this.width+"></embed>";
-		} else if(this.type.toUpperCase() == "NW"){
-		embedText = "<a id=\"imy_video_close\">CLOSE</a><embed src=\"" +this.url+ "\" quality=\"high\" width=" +this.width+ " height=" +this.height+ " align=\"middle\" allowScriptAccess=\"always\" allowFullScreen=\"true\" mode=\"transparent\" type=\"application/x-shockwave-flash\"></embed>";
-		}else{alert("VIDEO TYPE ERROR!")};
+			if(type)
+			{
+				embedText = "<a id=\"imy_video_close\">CLOSE</a><embed wmode=\"transparent\" type=\"application/x-shockwave-flash\" pluginspage=\"http://www.macromedia.com/go/getflashplayer\" quality=\"high\" flashvars=\"vcastr_file="+this.url+"&IsAutoPlay="+this.auto+"&IsContinue="+this.repeat+"&IsShowBar="+this.showbar+"&IsShowTime="+this.showtime+"&BeginSwf="+this.beginswf+"&EndSwf="+this.endswf+"\" allowfullscreen=\"true\" src=\"http://img1.tiancitycdn.com/cls/utils/common/Yplayer/vcastr.swf\" height="+this.height+" width="+this.width+"></embed>"
+			}
+			else
+			{
+				embedText = "<embed wmode=\"transparent\" type=\"application/x-shockwave-flash\" pluginspage=\"http://www.macromedia.com/go/getflashplayer\" quality=\"high\" flashvars=\"vcastr_file="+this.url+"&IsAutoPlay="+this.auto+"&IsContinue="+this.repeat+"&IsShowBar="+this.showbar+"&IsShowTime="+this.showtime+"&BeginSwf="+this.beginswf+"&EndSwf="+this.endswf+"\" allowfullscreen=\"true\" src=\"http://img1.tiancitycdn.com/cls/utils/common/Yplayer/vcastr.swf\" height="+this.height+" width="+this.width+"></embed>"
+			}
+		} else if(this.type.toUpperCase() == "NW")
+		{
+			embedText = "<a id=\"imy_video_close\">CLOSE</a><embed src=\"" +this.url+ "\" quality=\"high\" width=" +this.width+ " height=" +this.height+ " align=\"middle\" allowScriptAccess=\"always\" allowFullScreen=\"true\" mode=\"transparent\" type=\"application/x-shockwave-flash\"></embed>";
+		}else
+		{
+			alert("VIDEO TYPE ERROR!")
+		};
 		return embedText
 	}
 };
