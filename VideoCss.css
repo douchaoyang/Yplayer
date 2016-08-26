@@ -1,0 +1,5 @@
+#imy_video_content{position:fixed; _position:absolute; top:0;_top:expression(eval(document.compatMode && document.compatMode=='CSS1Compat') ? documentElement.scrollTop + (document.documentElement.clientHeight-this.offsetHeight)/2:document.body.scrollTop + (document.body.clientHeight - this.clientHeight)/2); left:0; width:100%; height:100%; z-index:10001;} #imy_video_content #imy_video_wrapper{position:absolute; top:50%; left:50%; z-index:10000;}
+#imy_video_content #imy_video_wrapper{background-color: #000;}
+#imy_video_content #imy_video_wrapper #imy_video_close{position:absolute; top:0; right:-60px;width:58px; height:58px; background:url(imy_video_close.png) no-repeat 0 0; overflow:hidden; text-indent:-9999px;outline:none;}
+#imy_video_content #imy_video_wrapper #imy_video_close:hover{background-position: 0 -58px;}
+#imy_video_content #imy_video_lock{position:absolute; top:0; left:0; background:#000; opacity:0.9; filter:alpha(opacity=90); z-index:999;}
