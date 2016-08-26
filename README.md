@@ -6,7 +6,7 @@ PC 端视频播放器插件 基于Vcastr 2.2 SWF皮肤
 
 特点：兼容性高，实用性强，使用方便，体积小。
 
-线上调用地址：http://img1.tiancitycdn.com/cls/utils/common/Yplayer/Yplayer.js
+线上JS调用地址：http://img1.tiancitycdn.com/cls/utils/common/Yplayer/Yplayer.js
 
 使用方法：
 
@@ -22,14 +22,14 @@ var player=new Yplayer({
 	
 	"showbar":3
 	
-});
+}); 初始化播放器
 
-player.Load(boxid);初始化播放器 加载式
+player.Load(boxid);加载式调用方法
 
-player.Pop();初始化播放器 弹窗式
+player.Pop(); 弹窗式调用方法
 
 
-参数释义：
+可选参数释义：
 
 url 视频地址 flv文件路径|外网swf后缀名文件
 
