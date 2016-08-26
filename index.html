@@ -1,27 +1,28 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title></title>
 <link rel="stylesheet" type="text/css" href="http://img1.tiancitycdn.com/cls/utils/base/base.y.css">
 <style type="text/css">
-	body{height: 2000px; background-color: #ccc;}
+body{height: 2000px; background-color: #ccc;}
 </style>
 </head>
 <body>
 <div id="videobox"></div>
-<a href="javascript:;" id="videopop">弹弹弹</a>
-<script type="text/javascript" src="http://img1.tiancitycdn.com/project1/azera/util/Yplayer/Yplayer.min.js?"></script>
+<a href="javascript:levia.Pop();" id="videopop">弹弹弹</a>
+<script type="text/javascript" src="http://img1.tiancitycdn.com/cls/utils/common/Yplayer/Yplayer.js"></script>
 <script type="text/javascript">
-
-var player=new Yplayer("http://img1.tiancitycdn.com/project5/fs2/event/fiveprofession/flv/sg.flv",960,540,0,"TC");
-	player.repeat=0;
-	player.showbar=0;
-	player.showtime=1;
-	player.endswf=null;
-	player.VideoPop(videopop);
-	player.VideoLoad(videobox);
-
+var levia=new Yplayer({
+	"url":"http://img1.tiancitycdn.com/cls/event/adsland/videos/levia.flv",
+	"width":720,
+	"height":405,
+	"auto":1,
+	"showbar":3,
+	"showtime":1,
+	"repeat":1
+});
+levia.Load('videobox');
 </script>
 </body>
 </html>
