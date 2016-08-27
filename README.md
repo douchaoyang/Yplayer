@@ -53,3 +53,4 @@ endswf 视频结束后动画 默认空
 
 boxid 要加载视频的元素id
 
+演示地址：https://douchaoyang.github.io/Yplayer/
