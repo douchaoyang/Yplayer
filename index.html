@@ -1,28 +1,25 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title></title>
-<link rel="stylesheet" type="text/css" href="http://img1.tiancitycdn.com/cls/utils/base/base.y.css">
-<style type="text/css">
-body{height: 2000px; background-color: #ccc;}
-</style>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="http://www.douchaoyang.com/public/reset.pc.css">
+	<title>yplayer</title>
 </head>
 <body>
-<div id="videobox"></div>
-<a href="javascript:levia.Pop();" id="videopop">弹弹弹</a>
-<script type="text/javascript" src="http://img1.tiancitycdn.com/cls/utils/common/Yplayer/Yplayer.js"></script>
-<script type="text/javascript">
-var levia=new Yplayer({
-	"url":"http://img1.tiancitycdn.com/cls/event/adsland/videos/levia.flv",
-	"width":720,
-	"height":405,
-	"auto":1,
-	"showbar":3,
-	"showtime":1,
-	"repeat":1
-});
-levia.Load('videobox');
-</script>
+	<div id="box">...</div>
+	<a href="javascript:levia.Pop();">弹出视频</a>
+	<script type="text/javascript" src="http://www.douchaoyang.com/public/jquery.min.js"></script>
+	<script type="text/javascript" src="http://www.douchaoyang.com/public/core.lib.js"></script>
+	<script type="text/javascript">
+	var levia = null;
+	(function($){
+		$.loadScript("plug.yplayer.js",function(){
+			levia = new Yplayer({
+				url:"http://img1.tiancitycdn.com/cls/event/adsland/videos/levia.flv"
+			});
+			levia.Load(box)
+		})
+	})(core);
+	</script>
 </body>
 </html>
