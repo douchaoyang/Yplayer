@@ -1,56 +1,33 @@
 # Yplayer
+PC端视频播放器插件 基于Vcastr 2.2 SWF皮肤
 
-PC 端视频播放器插件 基于Vcastr 2.2 SWF皮肤
+在世纪天成任职期间，为配合日常工作，以及提高页面开发效率，自主开发了一款适用于PC端的视频播放器插件。现在主要用于《封印者》官方网站。
 
-在世纪天成工作期间，为了配合日常工作，以及提高页面开发效率，我自主开发了一款适用于PC端的视频播放器插件。现在主要用于《封印者》官方网站。http://cls.tiancity.com
+特点：`兼容性高`，`实用性强`，`使用方便`，`体积小`
 
-特点：兼容性高，实用性强，使用方便，体积小。
+* `使用方法`：
 
-线上JS调用地址：http://img1.tiancitycdn.com/cls/utils/common/Yplayer/Yplayer.js
-
-使用方法：
-
+```javascript
+//初始化播放器
 var player=new Yplayer({
-
-	"url":"XXX.flv",
+	url:null,//视频地址，必须
+	width:720,//宽度，默认720
+	height:405,//高度，默认405
+	auto:1,//是否自动播放，默认是
+	ext:false,//是否是外链地址，默认否
+	repeat:1,//是否重复播放，默认是
+	showbar:3,//控制栏显示方式，0不显示，1一直显示，2鼠标悬停显示，3开始不显示鼠标悬停时显示，默认3
+	showtime:1,//是否显示播放时间，默认是
+	beginswf:"",//开始前加载动画，默认空
+	endswf:""//结束后加载动画，默认空
 	
-	"width":720,
-	
-	"height":405,
-	
-	"auto":1,
-	
-	"showbar":3
-	
-}); 初始化播放器
+})
+```
+* `调用方法`:
 
-player.Load(boxid);加载式调用方法
+```javascript
+player.Load(boxid); //加载式调用方法
+player.Pop(); //弹窗式调用方法
+```
 
-player.Pop(); 弹窗式调用方法
-
-
-可选参数释义：
-
-url 视频地址 flv文件路径|外网swf后缀名文件
-
-width 播放器宽度
-
-height 播放器高度
-
-auto 是否自动播放 0|1
-
-type 视频地址类型 TC|NW TC为内部视频地址，NW为外网SWF地址
-
-repeat 是否循环播放 0|1 
-
-showbar 0表示不显示|1表示一直显示|2表示鼠标悬停时显示|3表示开始不显示，鼠标悬停时显示 
-
-showtime 是否显示时间 0|1
-
-beginswf 视频播放前动画 默认空
-
-endswf 视频结束后动画 默认空
-
-boxid 要加载视频的元素id
-
-演示地址：https://douchaoyang.github.io/sc/Yplayer/
+* [`关于作者`](http://www.douchaoyang.com)
