@@ -63,7 +63,14 @@ window.Yplayer = window.Yplayer || (function($){
 		} 
 		else
 		{
-			return "<a id=\"imy_video_close\"></a><embed src=\"" +this.o.url+ "\" quality=\"high\" width=" +this.o.width+ " height=" +this.o.height+ " align=\"middle\" allowScriptAccess=\"always\" allowFullScreen=\"true\" mode=\"transparent\" type=\"application/x-shockwave-flash\"></embed>";
+			if(fuck)
+			{
+				return "<a id=\"imy_video_close\"></a><embed src=\"" +this.o.url+ "\" quality=\"high\" width=" +this.o.width+ " height=" +this.o.height+ " align=\"middle\" allowScriptAccess=\"always\" allowFullScreen=\"true\" wmode=\"transparent\" type=\"application/x-shockwave-flash\"></embed>";
+			}
+			else
+			{
+				return "<embed src=\"" +this.o.url+ "\" quality=\"high\" width=" +this.o.width+ " height=" +this.o.height+ " align=\"middle\" allowScriptAccess=\"always\" allowFullScreen=\"true\" wmode=\"transparent\" type=\"application/x-shockwave-flash\"></embed>";
+			}
 		}
 	};
 	return Yplayer
