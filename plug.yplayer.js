@@ -9,14 +9,14 @@
 window.Yplayer = window.Yplayer || (function($){
 	var Yplayer = function(o)
 	{
-		this.o = {url:null,width:720,height:405,auto:1,ext:false,repeat:1,showbar:3,showtime:1,beginswf:"",endswf:""};
+		this.o = {flash: false, url:null,width:720,height:405,auto:1,ext:false,repeat:1,showbar:3,showtime:1,beginswf:"",endswf:""};
 		extend(this.o, o||{});
 		this.flag = true
 
 	};
 	Yplayer.prototype.Load = function(id)
 	{
-		g(id).innerHTML = this.Mode(false)
+		g(id).innerHTML = this.Mode(false);
 	};
 	Yplayer.prototype.Pop = function()
 	{
@@ -34,6 +34,7 @@ window.Yplayer = window.Yplayer || (function($){
 					height:_this.o.height+"px"
 				});
 				g("imy_video_wrapper").innerHTML = _this.Mode(true);
+				!_this.o.flash && document.getElementById("imy_video_mp4_pop").play()
 			}
 			$.setStyle(g("imy_video_content"),{
 				width:client_width + "px",
@@ -54,11 +55,21 @@ window.Yplayer = window.Yplayer || (function($){
 		{
 			if(fuck)
 			{
-				return "<a id=\"imy_video_close\"></a><embed wmode=\"transparent\" type=\"application/x-shockwave-flash\" pluginspage=\"http://www.macromedia.com/go/getflashplayer\" quality=\"high\" flashvars=\"vcastr_file="+this.o.url+"&IsAutoPlay="+this.o.auto+"&IsContinue="+this.o.repeat+"&IsShowBar="+this.o.showbar+"&IsShowTime="+this.o.showtime+"&BeginSwf="+this.o.beginswf+"&EndSwf="+this.o.endswf+"\" allowfullscreen=\"true\" src=\"plug.yplayer.swf\" height="+this.o.height+" width="+this.o.width+"></embed>"
+				if(this.o.flash) {
+					return "<a id=\"imy_video_close\"></a><embed wmode=\"transparent\" type=\"application/x-shockwave-flash\" pluginspage=\"http://www.macromedia.com/go/getflashplayer\" quality=\"high\" flashvars=\"vcastr_file="+this.o.url+"&IsAutoPlay="+this.o.auto+"&IsContinue="+this.o.repeat+"&IsShowBar="+this.o.showbar+"&IsShowTime="+this.o.showtime+"&BeginSwf="+this.o.beginswf+"&EndSwf="+this.o.endswf+"\" allowfullscreen=\"true\" src=\"plug.yplayer.swf\" height="+this.o.height+" width="+this.o.width+"></embed>"
+				}
+				else {
+					return "<a id=\"imy_video_close\"></a><video controls id=\"imy_video_mp4_pop\" width=\""+this.o.width+"\" height=\""+this.o.height+"\" src=\""+this.o.url+"\"></video>"
+				}
 			}
 			else
 			{
-				return "<embed wmode=\"transparent\" type=\"application/x-shockwave-flash\" pluginspage=\"http://www.macromedia.com/go/getflashplayer\" quality=\"high\" flashvars=\"vcastr_file="+this.o.url+"&IsAutoPlay="+this.o.auto+"&IsContinue="+this.o.repeat+"&IsShowBar="+this.o.showbar+"&IsShowTime="+this.o.showtime+"&BeginSwf="+this.o.beginswf+"&EndSwf="+this.o.endswf+"\" allowfullscreen=\"true\" src=\"plug.yplayer.swf\" height="+this.o.height+" width="+this.o.width+"></embed>"
+				if(this.o.flash) {
+					return "<embed wmode=\"transparent\" type=\"application/x-shockwave-flash\" pluginspage=\"http://www.macromedia.com/go/getflashplayer\" quality=\"high\" flashvars=\"vcastr_file="+this.o.url+"&IsAutoPlay="+this.o.auto+"&IsContinue="+this.o.repeat+"&IsShowBar="+this.o.showbar+"&IsShowTime="+this.o.showtime+"&BeginSwf="+this.o.beginswf+"&EndSwf="+this.o.endswf+"\" allowfullscreen=\"true\" src=\"plug.yplayer.swf\" height="+this.o.height+" width="+this.o.width+"></embed>"
+				}
+				else {
+					return "<video controls id=\"imy_video_mp4_load\" width=\""+this.o.width+"\" height=\""+this.o.height+"\" src=\""+this.o.url+"\"></video>"
+				}
 			}
 		} 
 		else
